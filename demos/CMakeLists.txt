@@ -18,11 +18,11 @@ project(demos LANGUAGES CXX)
 
 libhal_build_demos(
   DEMOS
-  __device__
+  nunchuck
 
   PACKAGES
-  libhal-__device__
+  libhal-nunchuck
 
   LINK_LIBRARIES
-  libhal::__device__
+  libhal::nunchuck
 )
