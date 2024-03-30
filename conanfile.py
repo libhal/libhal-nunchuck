@@ -18,12 +18,12 @@ from conan import ConanFile
 required_conan_version = ">=2.0.14"
 
 
-class libhal___device___conan(ConanFile):
-    name = "libhal-__device__"
+class libhal_nunchuck_conan(ConanFile):
+    name = "libhal-nunchuck"
     license = "Apache-2.0"
-    homepage = "https://github.com/libhal/libhal-__device__"
-    description = ("A collection of drivers for the __device__")
-    topics = ("__device__", "libhal", "driver")
+    homepage = "https://github.com/libhal/libhal-nunchuck"
+    description = ("A collection of drivers for the nunchuck")
+    topics = ("nunchuck", "libhal", "driver")
     settings = "compiler", "build_type", "os", "arch"
 
     python_requires = "libhal-bootstrap/[^1.0.0]"
@@ -36,5 +36,5 @@ class libhal___device___conan(ConanFile):
         bootstrap.module.add_library_requirements(self)
 
     def package_info(self):
-        self.cpp_info.libs = ["libhal-__device__"]
-        self.cpp_info.set_property("cmake_target_name", "libhal::__device__")
+        self.cpp_info.libs = ["libhal-nunchuck"]
+        self.cpp_info.set_property("cmake_target_name", "libhal::nunchuck")
