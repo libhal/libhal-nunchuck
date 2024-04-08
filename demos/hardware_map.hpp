@@ -15,6 +15,7 @@
 #pragma once
 
 #include <libhal/functional.hpp>
+#include <libhal/i2c.hpp>
 #include <libhal/serial.hpp>
 #include <libhal/steady_clock.hpp>
 
@@ -22,6 +23,7 @@ struct hardware_map_t
 {
   hal::serial* console;
   hal::steady_clock* clock;
+  hal::i2c* i2c;
   hal::callback<void()> reset;
   // Add more driver interfaces here ...
 };

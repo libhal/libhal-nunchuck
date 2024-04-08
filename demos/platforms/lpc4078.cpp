@@ -17,6 +17,7 @@
 #include <libhal-armcortex/system_control.hpp>
 #include <libhal-lpc40/clock.hpp>
 #include <libhal-lpc40/constants.hpp>
+#include <libhal-lpc40/i2c.hpp>
 #include <libhal-lpc40/uart.hpp>
 #include <libhal-util/as_bytes.hpp>
 
@@ -27,7 +28,7 @@ hardware_map_t initialize_platform()
   using namespace hal::literals;
 
   // Set the MCU to the maximum clock speed
-  hal::lpc40::maximum(10.0_MHz);
+  hal::lpc40::maximum(12.0_MHz);
 
   // Create a hardware counter
   static hal::cortex_m::dwt_counter counter(
@@ -40,10 +41,12 @@ hardware_map_t initialize_platform()
                                 hal::serial::settings{
                                   .baud_rate = 115200,
                                 });
+  static hal::lpc40::i2c i2c2(2);
 
   return {
     .console = &uart0,
     .clock = &counter,
+    .i2c = &i2c2,
     .reset = []() { hal::cortex_m::reset(); },
   };
 }
