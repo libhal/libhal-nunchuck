@@ -16,5 +16,4 @@
 
 int main()
 {
-  hal::nunchuck::nunchuck_replace_me bar;
 }
